@@ -120,7 +120,7 @@ const changeSlide = (index) => {
   items[index].style.display = "block"
 }
 
-searchBtn.addEventListener('click', function () {
+const sliderProcessing = () => {
   document.querySelector('.main').style.display = 'none';
   clearInterval(timer);
   const search = document.getElementById('search');
@@ -131,8 +131,20 @@ searchBtn.addEventListener('click', function () {
   getImages(search.value)
   sliders.length = 0;
   search.value='';
+}
+
+searchBtn.addEventListener('click', function () {
+  sliderProcessing()
 })
 
 sliderBtn.addEventListener('click', function () {
   createSlider()
+})
+
+
+document.getElementById('search').addEventListener('keydown', (e) => {
+  if(e.key === 'Enter') {
+    // console.log(e.key)
+    sliderProcessing()
+  }
 })
