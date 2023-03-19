@@ -124,6 +124,10 @@ searchBtn.addEventListener('click', function () {
   document.querySelector('.main').style.display = 'none';
   clearInterval(timer);
   const search = document.getElementById('search');
+  if(parseInt(search.value)){
+    alert('Please enter valid word to search.')
+    location.reload()
+  }
   getImages(search.value)
   sliders.length = 0;
   search.value='';
